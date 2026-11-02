@@ -8,96 +8,76 @@
     <link rel="stylesheet" href="https://cloudflare.com">
     <style>
         :root {
-            --primary: #FF6B6B;
-            --secondary: #4ECDC4;
-            --yellow: #FFE66D;
+            --primary: #FF69B4; /* Warna Utama Pink Pastel */
+            --secondary: #00BFFF; /* Warna Pendukung Biru Toska ceria */
+            --yellow: #FFF0F5;
             --dark: #2F3E46;
-            --light: #F7FFF7;
+            --light: #F0F8FF; /* Background Biru Muda Lembut */
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
         body { background-color: var(--light); color: var(--dark); overflow-x: hidden; }
-        header { background: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
-        .logo-area { cursor: pointer; }
-        .logo-title { font-weight: 700; font-size: 24px; color: var(--primary); }
-        nav { display: flex; gap: 20px; align-items: center; }
-        nav a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 14px; transition: 0.3s; }
-        nav a:hover { color: var(--primary); }
-        .lang-badge { font-size: 12px; background: #ECEFF1; padding: 4px 8px; border-radius: 10px; }
-        .btn { padding: 10px 20px; border-radius: 25px; border: none; font-weight: 600; cursor: pointer; transition: 0.3s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+        header { background: white; padding: 15px 4%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+        .logo-title { font-weight: 700; font-size: 22px; color: var(--primary); cursor: pointer; }
+        nav { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+        nav a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 12px; padding: 4px 6px; }
+        .btn { padding: 8px 16px; border-radius: 25px; border: none; font-weight: 600; cursor: pointer; transition: 0.3s; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; font-size: 12px; }
         .btn-primary { background: var(--primary); color: white; }
-        .btn-primary:hover { background: #ff5252; }
         .btn-secondary { background: var(--secondary); color: white; }
         .btn-whatsapp { background: #25D366; color: white; }
         .w-100 { width: 100%; justify-content: center; }
-        .hero { padding: 60px 5%; display: flex; flex-wrap: wrap; align-items: center; gap: 40px; background: linear-gradient(135deg, #FFE66D 0%, #FF6B6B 100%); color: white; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px; }
-        .hero-text { flex: 1; min-width: 300px; }
-        .hero-text h1 { font-size: 42px; font-weight: 700; line-height: 1.2; margin-bottom: 15px; }
-        .hero-text p { margin-bottom: 25px; }
-        .hero-img { flex: 1; min-width: 300px; text-align: center; }
-        .hero-img img { max-width: 85%; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
-        .container { padding: 50px 5%; }
-        .section-title { text-align: center; font-size: 28px; margin-bottom: 40px; color: var(--dark); }
-        .section-title::after { content: ''; display: block; width: 60px; height: 4px; background: var(--secondary); margin: 8px auto 0; border-radius: 2px; }
-        .about-section { background: white; margin-top: 30px; border-radius: 20px; }
+        .hero { padding: 40px 5%; display: flex; flex-wrap: wrap; align-items: center; gap: 20px; background: linear-gradient(135deg, #FFB6C1 0%, var(--primary) 50%, var(--secondary) 100%); color: white; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px; }
+        .hero-text { flex: 1; min-width: 280px; }
+        .hero-text h1 { font-size: 32px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; }
+        .hero-text p { margin-bottom: 20px; font-size: 14px; }
+        .container { padding: 30px 4%; }
+        .section-title { text-align: center; font-size: 24px; margin-bottom: 25px; color: var(--dark); }
+        .section-title::after { content: ''; display: block; width: 50px; height: 4px; background: var(--primary); margin: 6px auto 0; border-radius: 2px; }
+        .about-section { background: white; margin-top: 20px; border-radius: 15px; padding: 25px; }
         .about-card { max-width: 800px; margin: 0 auto; text-align: center; }
-        .about-card p { line-height: 1.8; color: #627D98; }
-        .address-text { margin: 15px 0; font-weight: 600; }
-        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .product-card { background: white; border-radius: 20px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.04); border: 2px solid transparent; transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between; }
-        .product-card:hover { border-color: var(--secondary); transform: translateY(-5px); }
-        .product-info h3 { font-size: 18px; margin: 15px 0 5px; }
-        .product-price { font-size: 20px; font-weight: 700; color: var(--primary); margin-bottom: 15px; }
-        .gallery-section { background: #F0F4F8; border-radius: 30px; }
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
-        .gallery-grid img { width: 100%; border-radius: 15px; height: 200px; object-fit: cover; }
-        .checkout-layout { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; }
+        .about-card p { line-height: 1.6; color: #627D98; font-size: 14px; }
+        .address-text { margin: 12px 0; font-weight: 600; font-size: 13px; }
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+        .product-card { background: white; border-radius: 15px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 2px solid transparent; transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between; }
+        .product-card:hover { border-color: var(--primary); transform: translateY(-3px); }
+        .product-info h3 { font-size: 16px; margin-bottom: 5px; color: var(--dark); }
+        .product-price { font-size: 18px; font-weight: 700; color: var(--primary); margin-bottom: 10px; }
+        .checkout-layout { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
         .flex-1 { flex: 1; }
-        .text-center { text-align: center; }
-        .text-left { text-align: left; }
-        .auth-box, .checkout-box { background: white; padding: 30px; border-radius: 20px; max-width: 500px; margin: 30px auto; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .max-w-600 { max-width: 600px; }
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; font-size: 12px; font-weight: 600; margin-bottom: 5px; }
-        .form-control { width: 100%; padding: 12px; border: 2px solid #EAEAEA; border-radius: 10px; font-size: 14px; outline: none; }
-        .form-control:focus { border-color: var(--secondary); }
-        .auth-toggle { text-align: center; margin-top: 15px; font-size: 12px; color: #627D98; cursor: pointer; }
-        .item-summary { background: #F8F9FA; padding: 15px; border-radius: 10px; margin-bottom: 20px; }
-        .qris-img { max-width: 220px; margin: 10px auto; border: 1px solid #DDD; padding: 5px; border-radius: 10px; }
-        .bill-summary { margin: 20px 0; border-top: 1px dashed #DDD; padding-top: 15px; }
-        .bill-row { display: flex; justify-content: space-between; margin-bottom: 5px; }
-        .total-row { font-weight: 700; font-size: 18px; color: var(--primary); }
-        .admin-card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
-        .admin-card h2 { color: var(--primary); margin-bottom: 20px; }
+        .auth-box, .checkout-box { background: white; padding: 25px; border-radius: 15px; max-width: 450px; margin: 20px auto; box-shadow: 0 8px 25px rgba(0,0,0,0.05); }
+        .form-group { margin-bottom: 12px; }
+        .form-group label { display: block; font-size: 11px; font-weight: 600; margin-bottom: 4px; }
+        .form-control { width: 100%; padding: 10px; border: 2px solid #EAEAEA; border-radius: 8px; font-size: 13px; outline: none; }
+        .form-control:focus { border-color: var(--primary); }
+        .item-summary { background: #F8F9FA; padding: 12px; border-radius: 8px; margin-bottom: 15px; font-size: 13px; }
+        .bill-summary { margin: 15px 0; border-top: 1px dashed #DDD; padding-top: 10px; font-size: 13px; }
+        .bill-row { display: flex; justify-content: space-between; margin-bottom: 4px; }
+        .total-row { font-weight: 700; font-size: 16px; color: var(--primary); }
+        .admin-card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
         .table-responsive { overflow-x: auto; }
-        table { width: 100%; border-collapse: collapse; text-align: left; font-size: 14px; }
-        th { background: #F0F4F8; border-bottom: 2px solid #D9E2EC; padding: 12px; }
-        td { border-bottom: 1px solid #E4E7EB; padding: 12px; }
+        table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13px; }
+        th { background: #F0F4F8; border-bottom: 2px solid #D9E2EC; padding: 10px; }
+        td { border-bottom: 1px solid #E4E7EB; padding: 10px; }
         .view-panel { display: none; }
         .view-panel.active { display: block; }
-        footer { background: var(--dark); color: white; padding: 40px 5% 20px; border-top-left-radius: 40px; border-top-right-radius: 40px; font-size: 14px; margin-top: 50px; }
-        .footer-cols { display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; margin-bottom: 30px; }
-        .footer-col { flex: 1; min-width: 220px; }
-        .footer-col h4 { margin-bottom: 15px; color: var(--yellow); }
-        .social-links a { color: white; font-size: 20px; margin-right: 15px; transition: 0.3s; }
-        .social-links a:hover { color: var(--secondary); }
-        .copyright { text-align: center; border-top: 1px solid #455A64; padding-top: 20px; font-size: 12px; color: #B0BEC5; }
+        footer { background: #1F2937; color: white; padding: 30px 5% 15px; border-top-left-radius: 25px; border-top-right-radius: 25px; font-size: 13px; margin-top: 40px; }
+        .footer-cols { display: flex; flex-wrap: wrap; gap: 25px; justify-content: space-between; margin-bottom: 20px; }
+        .footer-col { flex: 1; min-width: 200px; }
+        .copyright { text-align: center; border-top: 1px solid #374151; padding-top: 15px; font-size: 11px; color: #9CA3AF; }
     </style>
 </head>
-
 <body>
     <header>
         <div class="logo-area" onclick="switchView('home')">
             <span class="logo-title"><i class="fas fa-donut"></i> Tumpuk.in</span>
         </div>
         <nav>
-            <a href="#about" onclick="switchView('home')">Tentang Kami</a>
+            <a href="#about" onclick="switchView('home')">Tentang</a>
             <a href="#products" onclick="switchView('home')">Menu</a>
-            <a href="#tracking" onclick="switchView('tracking')">Lacak Pesanan</a>
-            <a href="#admin" onclick="switchView('admin-panel')"><i class="fas fa-lock"></i> Penjual</a>
+            <a href="#tracking" onclick="switchView('tracking')">Lacak</a>
+            <a href="#admin" onclick="switchView('admin-panel')"><i class="fas fa-lock"></i> Mimin</a>
             <div id="user-status">
-                <button class="btn btn-primary" onclick="switchView('auth')"><i class="fas fa-user"></i> Masuk</button>
+                <button class="btn btn-primary" style="padding:5px 12px;" onclick="switchView('auth')">Masuk</button>
             </div>
-            <span class="lang-badge"><i class="fas fa-globe"></i> Auto (ID)</span>
         </nav>
     </header>
 
@@ -105,20 +85,17 @@
         <section class="hero">
             <div class="hero-text">
                 <h1>Donat mini, harga mini! 🍩</h1>
-                <p>Bebas pilih rasa topping glaze sepuasnya! Pastikan tumpukan donat Anda tetap kokoh dan jangan sampai jatuh!</p>
-                <a href="#products" class="btn btn-primary">Pesan Sekarang <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="hero-img">
-                <img src="https://githubusercontent.com" alt="Logo" onerror="this.src='image_vSs77w.png'">
+                <p>Bebas pilih rasa topping glaze sepuasnya! Cantik, warna-warni, dan ramah di kantong!</p>
+                <a href="#products" class="btn btn-secondary">Pesan Sekarang <i class="fas fa-arrow-right"></i></a>
             </div>
         </section>
 
         <section id="about" class="container about-section">
             <div class="about-card">
                 <h2 class="section-title">Dapur Tumpuk.in</h2>
-                <p>Kami memproduksi donat mini berkualitas tinggi setiap hari di dapur kami. Nikmati petualangan rasa dengan berbagai varian rasa premium pilihan Anda.</p>
-                <p class="address-text"><i class="fas fa-map-marker-alt"></i> Mie Ayam Pedo RT 02/RW 02 Kontrakan Bata Merah No.2 Kayumanis Tanah Sareal, Kota Bogor, Jawa Barat 16169</p>
-                <a href="https://share.google" target="_blank" class="btn btn-secondary"><i class="fas fa-directions"></i> Buka Google Maps</a>
+                <p>Kami memproduksi donat mini berkualitas tinggi setiap hari secara higienis.</p>
+                <p class="address-text"><i class="fas fa-map-marker-alt" style="color:var(--primary)"></i> Mie Ayam Pedo RT 02/RW 02 Kontrakan Bata Merah No.2 Kayumanis Tanah Sareal, Kota Bogor</p>
+                <a href="https://share.google" target="_blank" class="btn btn-secondary"><i class="fas fa-directions"></i> Google Maps</a>
             </div>
         </section>
 
@@ -126,21 +103,10 @@
             <h2 class="section-title">Pilihan Menu Terfavorit</h2>
             <div class="menu-grid" id="product-container"></div>
         </section>
-
-        <section class="container gallery-section">
-            <h2 class="section-title">Galeri Produk</h2>
-            <div class="gallery-grid">
-                <img src="image_K3Y3r9.png" alt="Donat">
-                <img src="image_WnlsT_.png" alt="Donat">
-                <img src="image_HXVW1u.png" alt="Donat">
-                <img src="image_FMu2LH.png" alt="Donat">
-            </div>
-        </section>
     </div>
-
     <div id="view-auth" class="view-panel container">
         <div class="auth-box">
-            <h3 id="auth-title">Masuk Akun Tumpuk.in</h3>
+            <h3 id="auth-title" style="margin-bottom:15px; text-align:center;">Masuk Akun</h3>
             <div class="form-group">
                 <label>Alamat Email</label>
                 <input type="email" class="form-control" id="auth-email" placeholder="nama@email.com">
@@ -150,78 +116,68 @@
                 <input type="password" class="form-control" id="auth-password" placeholder="••••••••">
             </div>
             <button class="btn btn-primary w-100" onclick="handleAuth()">Lanjutkan</button>
-            <p class="auth-toggle" onclick="toggleAuthMode()">Belum punya akun? Daftar disini</p>
+            <p style="text-align:center;font-size:12px;margin-top:10px;cursor:pointer;color:var(--secondary);" onclick="toggleAuthMode()">Belum punya akun? Daftar</p>
         </div>
     </div>
-      <div id="view-checkout" class="view-panel container">
+
+    <div id="view-checkout" class="view-panel container">
         <h2 class="section-title">Selesaikan Pembayaran</h2>
         <div class="checkout-layout">
             <div class="checkout-box flex-1">
                 <h4><i class="fas fa-shopping-cart"></i> Rincian Pengiriman</h4>
                 <div id="checkout-item-details" class="item-summary"></div>
                 <div class="form-group">
-                    <label>Detail Alamat Pengiriman Lengkap</label>
-                    <textarea class="form-control" id="shipping-address" rows="3" placeholder="Nama Jalan, Blok..."></textarea>
+                    <label>Alamat Pengiriman Lengkap</label>
+                    <textarea class="form-control" id="shipping-address" rows="3" placeholder="Nama Jalan, Nomor Rumah..."></textarea>
                 </div>
                 <div class="form-group">
-                    <label>Ekspedisi / Metode Pengiriman</label>
+                    <label>Metode Pengiriman</label>
                     <select class="form-control" id="delivery-method" onchange="calculateDelivery()">
                         <option value="pickup">Ambil Sendiri di Dapur (Gratis)</option>
-                        <option value="grab_gojek">Grab / Gojek</option>
+                        <option value="grab_gojek">Grab / Gojek (Ongkir COD)</option>
                         <option value="seller">Kurir Tumpuk.in (Khusus Bogor)</option>
                     </select>
                 </div>
                 <div class="form-group" id="distance-group" style="display: none;">
-                    <label>Estimasi Jarak Ke Rumah Pembeli (KM)</label>
+                    <label>Isi Jarak dari Dapur ke Rumah Anda (KM)</label>
                     <input type="number" class="form-control" id="delivery-distance" value="5" onchange="calculateDelivery()">
                 </div>
                 <div class="form-group">
-                    <label>Catatan / Request Ucapan Khusus</label>
-                    <input type="text" class="form-control" id="order-notes" placeholder="Contoh: Tulis 'Happy Birthday'">
+                    <label>Catatan / Request Ucapan Donat</label>
+                    <input type="text" class="form-control" id="order-notes" placeholder="Contoh: Tulis 'HBD Elvina'">
                 </div>
             </div>
 
             <div class="checkout-box flex-1 text-center">
-                <h4><i class="fas fa-qrcode"></i> Scan QRIS Resmi Merchant</h4>
-                <img src="image_Vl5Nkk.png" alt="QRIS Tumpuk.in" class="qris-img">
+                <h4><i class="fas fa-qrcode"></i> Scan QRIS Merchant</h4>
+                <div style="background:#ddd;width:140px;height:140px;margin:10px auto;display:flex;align-items:center;justify-content:center;font-size:11px;color:#666;border-radius:8px;">[Foto QRIS Toko Anda]</div>
                 <div class="bill-summary">
                     <div class="bill-row"><span>Subtotal:</span><span id="txt-subtotal">Rp0</span></div>
                     <div class="bill-row"><span>Ongkos Kirim:</span><span id="txt-delivery">Rp0</span></div>
                     <div class="bill-row total-row"><span>Total Bayar:</span><span id="txt-total">Rp0</span></div>
                 </div>
                 <div class="form-group text-left">
-                    <label>Upload Bukti Transfer Pembayaran</label>
+                    <label>Upload Bukti Transfer</label>
                     <input type="file" class="form-control" id="payment-proof">
                 </div>
                 <button class="btn btn-primary w-100" onclick="submitOrder()">Konfirmasi Pesanan</button>
             </div>
         </div>
     </div>
+
     <div id="view-tracking" class="view-panel container">
-        <div class="auth-box max-w-600">
-            <h3 class="section-title">Status Pesanan Anda</h3>
-            <div id="tracking-list">
-                <p class="text-center-muted">Belum ada transaksi terdeteksi.</p>
-            </div>
+        <div class="auth-box">
+            <h3 class="section-title">Status Pesanan</h3>
+            <div id="tracking-list"><p style="text-align:center;color:#999;">Belum ada transaksi.</p></div>
         </div>
     </div>
 
     <div id="view-admin-panel" class="view-panel container">
         <div class="admin-card">
-            <h2><i class="fas fa-tachometer-alt"></i> Panel Kontrol Seller (Tumpuk.in)</h2>
+            <h2 style="font-size:16px;color:var(--primary);margin-bottom:12px;"><i class="fas fa-tachometer-alt"></i> Panel Kontrol Toko</h2>
             <div class="table-responsive">
                 <table>
-                    <thead>
-                        <tr>
-                            <th>ID Order</th>
-                            <th>Pelanggan</th>
-                            <th>Pesanan</th>
-                            <th>Alamat & Jarak</th>
-                            <th>Bukti</th>
-                            <th>Status</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
+                    <thead><tr><th>ID</th><th>Pelanggan</th><th>Menu</th><th>Alamat & Jarak</th><th>Status</th><th>Aksi</th></tr></thead>
                     <tbody id="admin-orders-table"></tbody>
                 </table>
             </div>
@@ -232,16 +188,14 @@
         <div class="footer-cols">
             <div class="footer-col">
                 <h4>Tumpuk.in</h4>
-                <p>Donat mini kualitas premium, ramah kantong khusus area Bogor.</p>
+                <p>Donat mini harga mini khusus area Bogor.</p>
             </div>
             <div class="footer-col">
-                <h4>Pesanan Acara / Hajatan</h4>
                 <a href="https://wa.me" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Hubungi WA</a>
             </div>
         </div>
         <div class="copyright">&copy; All rights reserved 2026 Tumpuk.in</div>
     </footer>
-
     <script>
         const menus = [
             { id: 1, name: "Mini 6 (Topping Glaze)", price: 15000, desc: "Topping glaze premium bebas mix." },
@@ -258,6 +212,7 @@
         let selectedProductForCheckout = null;
         let isRegisterMode = false;
         let globalOrders = [{ id: "T-8921", email: "pembeli@gmail.com", name: "Mini 12 (Topping Glaze)", note: "HBD Kisya", address: "Tanah Sareal", distance: 4, delivery: "seller", total: 25000, status: "Diproses" }];
+
         window.onload = function() { renderProducts(); renderAdminTable(); };
 
         function renderProducts() {
@@ -265,10 +220,10 @@
             if(!container) return;
             container.innerHTML = menus.map(item => `
                 <div class="product-card">
-                    <div class="product-info"><h3>${item.name}</h3><p style="color:#7B8794; font-size:12px;">${item.desc}</p></div>
+                    <div class="product-info"><h3>${item.name}</h3><p style="color:#7B8794;font-size:12px;margin-top:4px;">${item.desc}</p></div>
                     <div>
                         <div class="product-price">Rp ${item.price.toLocaleString('id-ID')}</div>
-                        <button class="btn btn-primary w-100" onclick="initiateCheckout(${item.id})">Beli</button>
+                        <button class="btn btn-primary w-100" onclick="initiateCheckout(${item.id})">Pilih & Beli</button>
                     </div>
                 </div>
             `).join('');
@@ -287,14 +242,32 @@
         }
 
         function toggleAuthMode() { isRegisterMode = !isRegisterMode; document.getElementById('auth-title').innerText = isRegisterMode ? "Daftar Akun" : "Masuk Akun"; }
-        function handleAuth() { const email = document.getElementById('auth-email').value; if(!email) return; isUserLoggedIn = true; userEmail = email; document.getElementById('user-status').innerHTML = `<span><i class="fas fa-user-circle"></i> ${email.split('@')[0]}</span>`; if(selectedProductForCheckout) { showCheckoutPage(); } else { switchView('home'); } }
-        function showCheckoutPage() { switchView('checkout'); document.getElementById('checkout-item-details').innerHTML = `<strong>${selectedProductForCheckout.name}</strong><br>Harga: Rp ${selectedProductForCheckout.price.toLocaleString('id-ID')}`; document.getElementById('txt-subtotal').innerText = "Rp " + selectedProductForCheckout.price.toLocaleString('id-ID'); calculateDelivery(); }
+        
+        function handleAuth() { 
+            const email = document.getElementById('auth-email').value; 
+            if(!email) return; 
+            isUserLoggedIn = true; 
+            userEmail = email; 
+            document.getElementById('user-status').innerHTML = `<span style="font-size:12px;color:var(--primary);font-weight:600;"><i class="fas fa-user-circle"></i> ${email.split('@')[0]}</span>`; 
+            if(selectedProductForCheckout) { showCheckoutPage(); } else { switchView('home'); } 
+        }
+        
+        function showCheckoutPage() { 
+            switchView('checkout'); 
+            document.getElementById('checkout-item-details').innerHTML = `<strong>${selectedProductForCheckout.name}</strong><br>Harga: Rp ${selectedProductForCheckout.price.toLocaleString('id-ID')}`; 
+            document.getElementById('txt-subtotal').innerText = "Rp " + selectedProductForCheckout.price.toLocaleString('id-ID'); 
+            calculateDelivery(); 
+        }
 
         function calculateDelivery() {
             const method = document.getElementById('delivery-method').value;
             const distEl = document.getElementById('distance-group');
             let deliveryFee = 0;
-            if (method === 'seller') { distEl.style.display = 'block'; const distance = parseFloat(document.getElementById('delivery-distance').value) || 0; if (distance > 10) { deliveryFee = (distance - 10) * 5000; } } else { distEl.style.display = 'none'; }
+            if (method === 'seller') { 
+                distEl.style.display = 'block'; 
+                const distance = parseFloat(document.getElementById('delivery-distance').value) || 0; 
+                if (distance > 10) { deliveryFee = (distance - 10) * 5000; } 
+            } else { distEl.style.display = 'none'; }
             const subtotal = selectedProductForCheckout ? selectedProductForCheckout.price : 0;
             document.getElementById('txt-delivery').innerText = "Rp " + deliveryFee.toLocaleString('id-ID');
             document.getElementById('txt-total').innerText = "Rp " + (subtotal + deliveryFee).toLocaleString('id-ID');
@@ -319,11 +292,10 @@
         function renderAdminTable() {
             const tableBody = document.getElementById('admin-orders-table');
             if(!tableBody) return;
-            tableBody.innerHTML = globalOrders.map(o => `<tr><td>${o.id}</td><td>${o.email}</td><td>${o.name}</td><td>${o.address}</td><td>OK</td><td>${o.status}</td><td><button onclick="updateStatusByAdmin('${o.id}')">Selesai</button></td></tr>`).join('');
+            tableBody.innerHTML = globalOrders.map(o => `<tr><td>${o.id}</td><td>${o.email}</td><td>${o.name}</td><td>${o.address}</td><td>${o.status}</td><td><button class="btn btn-secondary" style="padding:4px 8px;font-size:11px;" onclick="updateStatusByAdmin('${o.id}')">Selesai</button></td></tr>`).join('');
         }
 
         function updateStatusByAdmin(orderId) { const index = globalOrders.findIndex(o => o.id === orderId); if(index !== -1) { globalOrders[index].status = "Selesai"; alert("Status diperbarui!"); renderAdminTable(); renderTrackingView(); } }
     </script>
 </body>
 </html>
-

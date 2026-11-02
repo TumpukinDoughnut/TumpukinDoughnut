@@ -12,7 +12,7 @@
         body { background-color: var(--light); color: var(--dark); overflow-x: hidden; }
         header { background: white; padding: 15px 4%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
         .logo-title { font-weight: 700; font-size: 22px; color: var(--primary); cursor: pointer; display: flex; align-items: center; gap: 8px; }
-        .logo-title img { width: 30px; height: 30px; border-radius: 50%; }
+        .logo-title img { width: 35px; height: 35px; border-radius: 50%; object-fit: cover; }
         nav { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
         nav a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 12px; padding: 4px 6px; }
         .btn { padding: 8px 16px; border-radius: 25px; border: none; font-weight: 600; cursor: pointer; transition: 0.3s; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; font-size: 12px; }
@@ -25,7 +25,7 @@
         .hero-text h1 { font-size: 32px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; }
         .hero-text p { margin-bottom: 20px; font-size: 14px; }
         .hero-img { flex: 1; min-width: 250px; text-align: center; }
-        .hero-img img { max-width: 150px; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+        .hero-img img { max-width: 180px; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
         .container { padding: 30px 4%; }
         .section-title { text-align: center; font-size: 24px; margin-bottom: 25px; color: var(--dark); }
         .section-title::after { content: ''; display: block; width: 50px; height: 4px; background: var(--primary); margin: 6px auto 0; border-radius: 2px; }
@@ -33,14 +33,18 @@
         .about-card { max-width: 800px; margin: 0 auto; text-align: center; }
         .about-card p { line-height: 1.6; color: #627D98; font-size: 14px; }
         .address-text { margin: 12px 0; font-weight: 600; font-size: 13px; }
+        .badge-container { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 15px; }
+        .badge-legal { background: #E0F2FE; color: #0369A1; font-size: 11px; font-weight: 700; padding: 6px 12px; border-radius: 8px; border: 1px solid #BAE6FD; }
         .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
         .product-card { background: white; border-radius: 15px; padding: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 2px solid transparent; transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between; }
         .product-card:hover { border-color: var(--primary); transform: translateY(-3px); }
         .product-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 10px; margin-bottom: 10px; }
         .product-info h3 { font-size: 15px; margin-bottom: 5px; color: var(--dark); }
         .product-price { font-size: 16px; font-weight: 700; color: var(--primary); margin-bottom: 10px; }
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-top: 15px; }
-        .gallery-grid img { width: 100%; height: 120px; object-fit: cover; border-radius: 10px; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
+        .gallery-item { background: white; padding: 10px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.04); text-align: center; }
+        .gallery-item img { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 8px; border: 1px solid #EEE; }
+        .gallery-item span { font-size: 12px; font-weight: 600; color: #486581; display: block; }
         .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; margin-top: 15px; }
         .testi-card { background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.02); border-left: 4px solid var(--primary); }
         .checkout-layout { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
@@ -49,8 +53,6 @@
         .form-group { margin-bottom: 12px; }
         .form-group label { display: block; font-size: 11px; font-weight: 600; margin-bottom: 4px; }
         .form-control { width: 100%; padding: 10px; border: 2px solid #EAEAEA; border-radius: 8px; font-size: 13px; outline: none; }
-        .form-control:focus { border-color: var(--primary); }
-        .item-summary { background: #F8F9FA; padding: 12px; border-radius: 8px; margin-bottom: 15px; font-size: 13px; }
         .bill-summary { margin: 15px 0; border-top: 1px dashed #DDD; padding-top: 10px; font-size: 13px; }
         .bill-row { display: flex; justify-content: space-between; margin-bottom: 4px; }
         .total-row { font-weight: 700; font-size: 16px; color: var(--primary); }
@@ -64,17 +66,19 @@
         footer { background: #1F2937; color: white; padding: 30px 5% 15px; border-top-left-radius: 25px; border-top-right-radius: 25px; font-size: 13px; margin-top: 40px; }
         .footer-cols { display: flex; flex-wrap: wrap; gap: 25px; justify-content: space-between; margin-bottom: 20px; }
         .footer-col { flex: 1; min-width: 200px; }
+        .footer-social-links a { color: white; font-size: 13px; margin-right: 15px; text-decoration: none; }
         .copyright { text-align: center; border-top: 1px solid #374151; padding-top: 15px; font-size: 11px; color: #9CA3AF; }
     </style>
 </head>
 <body>
     <header>
         <div class="logo-area" onclick="switchView('home')">
-            <span class="logo-title"><img src="image_vSs77w.png" alt="Logo"> Tumpuk.in</span>
+            <span class="logo-title"><img src="image_Co6chb.png" alt="Logo"> Tumpuk.in</span>
         </div>
         <nav>
             <a href="#about" onclick="switchView('home')">Tentang</a>
             <a href="#products" onclick="switchView('home')">Menu</a>
+            <a href="#gallery" onclick="switchView('home')">Galeri</a>
             <a href="#tracking" onclick="switchView('tracking')">Lacak</a>
             <a href="#admin" onclick="triggerAdminView()"><i class="fas fa-lock"></i> Mimin</a>
             <div id="user-status">
@@ -102,20 +106,40 @@
         <section class="hero">
             <div class="hero-text">
                 <h1>Donat mini, harga mini! 🍩</h1>
-                <p>Bebas pilih rasa topping glaze sepuasnya! Cantik, warna-warni, dan ramah di kantong!</p>
+                <p>Bebas pilih rasa topping glaze sepuasnya! Ambil sepuasnya, Jangan jatuh!</p>
                 <a href="#products" class="btn btn-secondary">Pesan Sekarang <i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="hero-img">
-                <img src="image_vSs77w.png" alt="Tumpuk.in Logo Utama">
+                <img src="image_Co6chb.png" alt="Logo Utama">
             </div>
         </section>
 
         <section id="about" class="container about-section">
             <div class="about-card">
                 <h2 class="section-title">Dapur Tumpuk.in</h2>
-                <p>Kami memproduksi donat mini berkualitas tinggi setiap hari secara higienis.</p>
+                <p>Kami memproduksi donat mini berkualitas tinggi setiap hari di dapur kami secara higienis, bersih, dan berizin resmi.</p>
                 <p class="address-text"><i class="fas fa-map-marker-alt" style="color:var(--primary)"></i> Mie Ayam Pedo RT 02/RW 02 Kontrakan Bata Merah No.2 Kayumanis Tanah Sareal, Kota Bogor</p>
-                <a href="https://share.google" target="_blank" class="btn btn-secondary"><i class="fas fa-directions"></i> Google Maps</a>
+                <div class="badge-container">
+                    <div class="badge-legal"><i class="fas fa-file-invoice"></i> NIB: 1110260004293</div>
+                    <div class="badge-legal"><i class="fas fa-leaf"></i> Izin SPPL Lingkungan Hidup</div>
+                    <div class="badge-legal"><i class="fas fa-check-double"></i> Kelayakan SNI Roti Manis</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SINKRONISASI 9 POTRET PRODUK ASLI BARU KE DALAM GALERI -->
+        <section id="gallery" class="container" style="background:white; border-radius:15px; margin-top:20px;">
+            <h2 class="section-title">Galeri Produk Asli Dapur Kami</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="image_sVr7oM.png" alt="Glaze"><span>1. Stok Pilihan Varian Rasa Glaze</span></div>
+                <div class="gallery-item"><img src="image_R3wMUO.png" alt="Sate"><span>2. Sate Donat Glaze Box Sticker</span></div>
+                <div class="gallery-item"><img src="image_ACkJjD.png" alt="Box"><span>3. Paket Kotak Hampers Premium Mix Topping</span></div>
+                <div class="gallery-item"><img src="image_l2I3Fj.png" alt="Tampah"><span>4. Donat Tampah Hias Cantik Ultah</span></div>
+                <div class="gallery-item"><img src="image_ENWsIK.png" alt="Hantaran"><span>5. Donat Tampah Hantaran Keluarga</span></div>
+                <div class="gallery-item"><img src="image_vKHa9J.png" alt="Mika"><span>6. Paket Ekonomis Isi 3 Pcs Mika</span></div>
+                <div class="gallery-item"><img src="image_kXF_wQ.png" alt="Adonan"><span>7. Proses Cetak Adonan Donat Higienis</span></div>
+                <div class="gallery-item"><img src="image_XKI1J1.png" alt="Mix"><span>8. Variasi Topping Kotak Sedang Isi 20</span></div>
+                <div class="gallery-item"><img src="image_G4_Bll.png" alt="Full"><span>9. Kreasi Warna-Warni Glaze Istimewa</span></div>
             </div>
         </section>
         <section id="products" class="container">
@@ -123,26 +147,20 @@
             <div class="menu-grid" id="product-container"></div>
         </section>
 
-        <section class="container" style="background:#white; border-radius:15px; padding:20px; margin-top:20px;">
-            <h2 class="section-title">Galeri Produk</h2>
-            <div class="gallery-grid">
-                <img src="image_K3Y3r9.png" alt="Koleksi Donat 1">
-                <img src="image_WnlsT_.png" alt="Koleksi Donat 2">
-                <img src="image_HXVW1u.png" alt="Koleksi Donat 3">
-                <img src="image_FMu2LH.png" alt="Koleksi Donat 4">
-            </div>
-        </section>
-
         <section class="container">
             <h2 class="section-title">Testimoni Bahagia</h2>
             <div class="testi-grid">
                 <div class="testi-card">
                     <p style="font-style:italic; font-size:13px;">"Donatnya lembut banget, topping glazenya bebas milih dan ga pelit. Anak-anak suka sekali!"</p>
-                    <h5 style="margin-top:8px; color:var(--primary); font-size:12px;">- Bundanya Ayas (WhatsApp)</h5>
+                    <h5 style="margin-top:8px; color:var(--primary); font-size:12px;">- Bapak Azril (WhatsApp)</h5>
                 </div>
                 <div class="testi-card">
                     <p style="font-style:italic; font-size:13px;">"Gokil pesen donat tampah buat acara arisan langsung abis diserbu. Auto repeat order."</p>
                     <h5 style="margin-top:8px; color:var(--primary); font-size:12px;">- Kak Elvina (WhatsApp)</h5>
+                </div>
+                <div class="testi-card">
+                    <p style="font-style:italic; font-size:13px;">"Ukurannya mini pas sekali buat sekali hap, rasanya pas nggak kemanisan. Sukses terus!"</p>
+                    <h5 style="margin-top:8px; color:var(--primary); font-size:12px;">- Ibu Rahma (WhatsApp)</h5>
                 </div>
             </div>
         </section>
@@ -177,8 +195,8 @@
                     <label>Metode Pengiriman</label>
                     <select class="form-control" id="delivery-method" onchange="calculateDelivery()">
                         <option value="pickup">Ambil Sendiri di Dapur (Gratis)</option>
-                        <option value="grab_gojek">Grab / Gojek (Ongkir COD)</option>
-                        <option value="seller">Kurir Tumpuk.in (Khusus Bogor)</option>
+                        <option value="grab_gojek">Grab / Gojek (Luar Kota Bogor / Tarif COD)</option>
+                        <option value="seller">Kurir Tumpuk.in (Eksklusif KOTA BOGOR Saja)</option>
                     </select>
                 </div>
                 <div class="form-group" id="distance-group" style="display: none;">
@@ -192,11 +210,11 @@
             </div>
 
             <div class="checkout-box flex-1 text-center">
-                <h4><i class="fas fa-qrcode"></i> Scan QRIS Resmi</h4>
-                <img src="image_Vl5Nkk.png" alt="QRIS Merchant Tumpuk.in" style="width:140px; height:140px; margin:10px auto; border:1px solid #eee; padding:5px; border-radius:8px;">
+                <h4><i class="fas fa-qrcode"></i> Scan QRIS Resmi Merchant</h4>
+                <img src="image_hTO2Bp.png" alt="QRIS Resmi Tumpuk.in" style="width:180px; height:240px; margin:10px auto; border:1px solid #eee; padding:5px; border-radius:8px; object-fit: contain;">
                 <div class="bill-summary">
                     <div class="bill-row"><span>Subtotal:</span><span id="txt-subtotal">Rp0</span></div>
-                    <div class="bill-row"><span>Ongkos Kirim:</span><span id="txt-delivery">Rp0</span></div>
+                    <div class="bill-row"><span>Ongkos Kirim Kurir:</span><span id="txt-delivery">Rp0</span></div>
                     <div class="bill-row total-row"><span>Total Bayar:</span><span id="txt-total">Rp0</span></div>
                 </div>
                 <div class="form-group text-left">
@@ -220,7 +238,7 @@
             <h2 style="font-size:16px;color:var(--primary);margin-bottom:12px;"><i class="fas fa-tachometer-alt"></i> Panel Kontrol Toko (Sisi Mimin)</h2>
             <div class="table-responsive">
                 <table>
-                    <thead><tr><th>ID</th><th>Pelanggan</th><th>Menu</th><th>Alamat & Jarak</th><th>Status</th><th>Aksi</th></tr></thead>
+                    <thead><tr><th>ID</th><th>Pelanggan</th><th>Menu</th><th>Alamat</th><th>Metode</th><th>Aksi</th></tr></thead>
                     <tbody id="admin-orders-table"></tbody>
                 </table>
             </div>
@@ -231,9 +249,17 @@
         <div class="footer-cols">
             <div class="footer-col">
                 <h4>Tumpuk.in</h4>
-                <p>Donat mini harga mini khusus area Bogor.</p>
+                <p>Donat mini harga mini khusus area Kota Bogor.</p>
             </div>
             <div class="footer-col">
+                <h4>Ikuti Media Sosial</h4>
+                <div class="footer-social-links">
+                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i> @ayas.babaamma</a><br><br>
+                    <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i> @ayas.babaamma</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Pesanan Acara</h4>
                 <a href="https://wa.me" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Hubungi WA</a>
             </div>
         </div>
@@ -241,13 +267,13 @@
     </footer>
     <script>
         const menus = [
-            { id: 1, name: "Mini 6 (Topping Glaze)", price: 15000, desc: "Topping glaze premium bebas mix.", img: "image_K3Y3r9.png" },
-            { id: 2, name: "Mini 12 (Topping Glaze)", price: 25000, desc: "Porsi sedang pas untuk berkumpul.", img: "image_WnlsT_.png" },
-            { id: 3, name: "Mini 6 (Topping Buah + Cokelat/Wafer)", price: 35000, desc: "Kombinasi buah segar berkualitas.", img: "image_HXVW1u.png" },
-            { id: 4, name: "Mini 12 (Topping Buah + Cokelat/Wafer)", price: 45000, desc: "Topping buah premium & wafer renyah.", img: "image_FMu2LH.png" },
-            { id: 5, name: "Donat Tampah 40 (Topping Glaze)", price: 80000, desc: "Sajian jumbo isi 40 pcs.", img: "image_K3Y3r9.png" },
-            { id: 6, name: "Mini 36 (Topping Buah + Cokelat/Wafer)", price: 100000, desc: "Paket pesta komplit rasa premium.", img: "image_WnlsT_.png" },
-            { id: 7, name: "Sate Donat Glaze (Paket 5 Tusuk)", price: 20000, desc: "1 tusuk isi 5 pcs donat mini glaze.", img: "image_HXVW1u.png" }
+            { id: 1, name: "Mini 6 (Topping Glaze)", price: 15000, desc: "Topping glaze premium bebas mix.", img: "image_ACkJjD.png" },
+            { id: 2, name: "Mini 12 (Topping Glaze)", price: 25000, desc: "Porsi sedang pas untuk berkumpul.", img: "image_XKI1J1.png" },
+            { id: 3, name: "Mini 6 (Topping Buah + Cokelat/Wafer/Biskuit)", price: 35000, desc: "Kombinasi buah segar berkualitas.", img: "image_ACkJjD.png" },
+            { id: 4, name: "Mini 12 (Topping Buah + Cokelat/Wafer/Biskuit)", price: 45000, desc: "Topping buah premium & wafer renyah.", img: "image_G4_Bll.png" },
+            { id: 5, name: "Donat Tampah 40 (Topping Glaze)", price: 80000, desc: "Sajian jumbo tradisional isi 40 pcs.", img: "image_ENWsIK.png" },
+            { id: 6, name: "Mini 36 (Topping Buah + Cokelat/Wafer/Biskuit)", price: 100000, desc: "Paket pesta komplit rasa premium.", img: "image_l2I3Fj.png" },
+            { id: 7, name: "Sate Donat Glaze (Paket 5 Tusuk)", price: 20000, desc: "1 tusuk isi 5 pcs donat mini glaze.", img: "image_R3wMUO.png" }
         ];
 
         let isUserLoggedIn = false;
@@ -263,7 +289,7 @@
             if(!container) return;
             container.innerHTML = menus.map(item => `
                 <div class="product-card">
-                    <img src="${item.img}" alt="${item.name}" onerror="this.src='image_vSs77w.png'">
+                    <img src="${item.img}" alt="${item.name}" onerror="this.src='image_Co6chb.png'">
                     <div class="product-info"><h3>${item.name}</h3><p style="color:#7B8794;font-size:11px;margin-top:4px;">${item.desc}</p></div>
                     <div>
                         <div class="product-price">Rp ${item.price.toLocaleString('id-ID')}</div>
@@ -286,8 +312,7 @@
             const inputEmail = document.getElementById('admin-login-email').value;
             const inputPass = document.getElementById('admin-login-pass').value;
             if(inputEmail === "gedeagung1965@gmail.com" && inputPass === "apa123alord") {
-                alert("Login Admin Berhasil!");
-                switchView('admin-panel');
+                alert("Login Admin Berhasil!"); switchView('admin-panel');
             } else { alert("Akses Ditolak! Akun Admin Salah."); }
         }
 
@@ -299,11 +324,9 @@
         function toggleAuthMode() { isRegisterMode = !isRegisterMode; document.getElementById('auth-title').innerText = isRegisterMode ? "Daftar Akun" : "Masuk Akun"; }
         
         function handleAuth() { 
-            const email = document.getElementById('auth-email').value; 
-            if(!email) return; 
-            isUserLoggedIn = true; 
-            userEmail = email; 
-            document.getElementById('user-status').innerHTML = `<span style="font-size:12px;color:var(--primary);font-weight:600;"><i class="fas fa-user-circle"></i> ${email.split('@')[0]}</span>`; 
+            const email = document.getElementById('auth-email').value; if(!email) return; 
+            isUserLoggedIn = true; userEmail = email; 
+            document.getElementById('user-status').innerHTML = `<span style="font-size:12px;color:var(--primary);font-weight:600;"><i class="fas fa-user-circle"></i> ${email.split('@')}</span>`; 
             if(selectedProductForCheckout) { showCheckoutPage(); } else { switchView('home'); } 
         }
         
@@ -332,10 +355,12 @@
             const address = document.getElementById('shipping-address').value;
             const proof = document.getElementById('payment-proof').value;
             if(!address || !proof) { alert("Lengkapi alamat dan bukti transfer!"); return; }
+            const method = document.getElementById('delivery-method').value;
+            if(method === 'seller') { alert("Pemberitahuan: Kurir Tumpuk.in Hanya Eksklusif Melayani Wilayah Internal KOTA BOGOR Saja."); }
             const newId = "T-" + Math.floor(1000 + Math.random() * 9000);
-            globalOrders.push({ id: newId, email: userEmail, name: selectedProductForCheckout.name, note: document.getElementById('order-notes').value || "-", address: address, distance: document.getElementById('delivery-distance').value, delivery: document.getElementById('delivery-method').value, status: "Menunggu" });
+            globalOrders.push({ id: newId, email: userEmail, name: selectedProductForCheckout.name, note: document.getElementById('order-notes').value || "-", address: address, distance: document.getElementById('delivery-distance').value, delivery: method, status: "Menunggu" });
             console.log(`[NOTIFIKASI] Pesanan dikirim ke email: gedeagung1965@gmail.com`);
-            alert("Pesanan sukses dikirim! Laporan pesanan telah diteruskan otomatis ke email gedeagung1965@gmail.com.");
+            alert("Pesanan sukses dikirim! Laporan pesanan baru telah diteruskan otomatis ke email gedeagung1965@gmail.com.");
             renderTrackingView(); renderAdminTable(); switchView('tracking');
         }
 
@@ -347,9 +372,8 @@
         }
 
         function renderAdminTable() {
-            const tableBody = document.getElementById('admin-orders-table');
-            if(!tableBody) return;
-            tableBody.innerHTML = globalOrders.map(o => `<tr><td>${o.id}</td><td>${o.email}</td><td>${o.name}</td><td>${o.address}</td><td>${o.status}</td><td><button class="btn btn-secondary" style="padding:4px 8px;font-size:11px;" onclick="updateStatusByAdmin('${o.id}')">Selesai</button></td></tr>`).join('');
+            const tableBody = document.getElementById('admin-orders-table'); if(!tableBody) return;
+            tableBody.innerHTML = globalOrders.map(o => `<tr><td>${o.id}</td><td>${o.email}</td><td>${o.name}</td><td>${o.address}</td><td>${o.delivery}</td><td><button class="btn btn-secondary" style="padding:4px 8px;font-size:11px;" onclick="updateStatusByAdmin('${o.id}')">Selesai</button></td></tr>`).join('');
         }
 
         function updateStatusByAdmin(orderId) { const index = globalOrders.findIndex(o => o.id === orderId); if(index !== -1) { globalOrders[index].status = "Selesai"; alert("Status diperbarui!"); renderAdminTable(); renderTrackingView(); } }
